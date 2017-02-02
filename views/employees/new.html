@@ -1,81 +1,113 @@
 
 
 
-	<div class="row" >
-		<h2 class="text-center"> Navtech-Form</h2>
-		<div class="col-md-offset-1 col-md-6 col-sm-12" >
-			<div class="login">
-				<h2>Registration Form</h2>
+<div class="row" >
+	<h2 class="text-center"> Navtech-Form</h2>
+	<div class="col-md-offset-1 col-md-6 col-sm-12" >
+		<div class="login">
+			<h2>Registration Form</h2>
 
-				<form class="form-horizontal" name="employeeForm" >
+			<form class="form-horizontal" name="employeeForm" >
+
+				<div class="form-group" >
+					<label id="label" class="control-label">First Name:</label>
+					<input type="text" class="form-control" name="userFirstName"  ng-model="user.firstname" placeholder="Enter First Name" ng-pattern="/[a-zA-Z]/" required />
+					<div ng-messages = "employeeForm.userFirstName.$error">
+						<div ng-message = "required"></div><br/>
+						<div ng-message = "pattern"> Invalid Name</div>
+					</div><br/>
+					
+
+
+
 
 					<div class="form-group" >
-						<label id="label" class="control-label">First Name:</label>
-						<input type="text" class="form-control" name="userFirstName" ng-pattern="/[a-zA-Z]/" ng-model="user.firstname" placeholder="Enter First Name" ng-pattern="/[a-zA-Z]/" required />
-						<div ng-messages = "employeeForm.userFirstName.$error">
-      <div ng-message = "required"></div><br/>
-      <div ng-message = "pattern"> Invalid Name</div>
-					</div><br/>
-					<div class="form-group" >
-						<label id="label" class="control-label">Last Name:</label>
-						<input type="text" class="form-control" name="userFirstName" ng-pattern="/[a-zA-Z]/" ng-model="user.firstname" placeholder="Enter First Name" ng-pattern="/[a-zA-Z]/" required />
-						<div ng-messages = "employeeForm.userFirstName.$error">
-      <div ng-message = "required"></div><br/>
-      <div ng-message = "pattern"> Invalid Name</div>
-					</div><br/>
-
-					<div class="form-group">
-						<label id="label" class="control-label">Email:</label>
-						<input type="email" class="form-control" ng-model="user.email" name="email" placeholder="Enter Email Address" autocomplete="off" required>
-						<span class="msg" ng-show="employeeForm.email.$dirty && employeeForm.email.$invalid">Email Address is not valid</span>
-					</div><br/>
-
-					<div class="form-group">
-						<label id="label" class="control-label">Password:</label>
-						<input type="password" class="form-control" ng-model="user.password" name="pass" placeholder="Enter Password" autocomplete="off" ng-minlength="5" ng-maxlength="12" required>
-						<span class="msg" ng-show="employeeForm.pass.$dirty && employeeForm.pass.$error.minlength">password must contain atleast 5 charecters</span>
-						<span class="msg" ng-show="employeeForm.pass.$dirty && employeeForm.pass.$error.maxlength">max-length of password reached</span>
-						<span class="msg" </span>
-						</div><br/>
-
-						<div class="form-group">
-							<label id="label" class="control-label">Address:</label>
-							<textarea type="textarea" rows="2" cols="50" name="Adress" class="form-control" ng-model="user.address" placeholder="Enter Your address" autocomplete="off" required></textarea><br>
-							<span class="adr" ng-show="employeeForm.address.$error.required"></span>
-						</div><br/>
-						<div class="form-group">
-							<label for="dob" class="control-label">DoB</label><br />
-							<input type="date" id="dob" ng-model="user.dob" /> <br /><br />
+					<label id="label" class="control-label">Last Name:</label>
+						<input type="text" class="form-control" name="userLastName" ng-pattern="/[a-zA-Z]/" ng-model="user.Lastname" placeholder="Enter last Name" ng-pattern="/[a-zA-Z]/" required />
+						<div ng-messages = "employeeForm.userLastName.$error">
+							<div ng-message = "required"></div><br/>
+							<div ng-message = "pattern"> Invalid Name</div>
 						</div>
+						<br/>
+
+
+
+
+
+
+
+
 						<div class="form-group">
-							<label id="label" >Gender:</label>&nbsp;&nbsp;&nbsp;
-							Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" ng-model="user.gender" value="male" required>
-							&nbsp;&nbsp;&nbsp; Female <input type="radio" name="gender" ng-model="user.gender" value="female" required></br>
-							<span class="msg" ng-show="employeeForm.gender.$error.required">select any gender</span>
+							<label id="label" class="control-label">Email:</label>
+							<input type="email" class="form-control" ng-model="user.email" name="email" placeholder="Enter Email Address" autocomplete="off" required>
+							<span class="msg" ng-show="employeeForm.email.$dirty && employeeForm.email.$invalid">Email Address is not valid</span>
 						</div><br/>
 
-
 						<div class="form-group">
-							<label id="label" class="control-label">Country:</label>
-							<select class="form-control" ng-model="user.country" name="cont" required>
-								<option value="india">India</option>
-								<option value="USA">USA</option>
-								<option value="switzerland">switzerland</option>
-							</select>
-							<span class="msg" ng-show="employeeForm.cont.$error.required">Select a value</span>
-						</div><br/>
-						<div class="form-group">
-						<button ng-click = "saveEmployee(employeeForm)"  ng-disabled = "employeeForm.$invalid" class="btn btn-danger">Submit</button>
+							<label id="label" class="control-label">Password:</label>
+							<input type="password" class="form-control" ng-model="user.password" name="userpassword" placeholder="Enter Password" autocomplete="off" ng-minlength="8" ng-maxlength="12" ng-pattern = "/^[0-9a-zA-Z]+$/" required>
 
-                               <input type="reset" ng-click="resetForm()" class ="btn btn-danger" value="Reset" />
+							<div ng-messages = "employeeForm.userpasswordsword.$error">
+								<div ng-message = "name">invalid password</div><br/>
+								<div ng-message = "pattern">invalid password</div>
+							</div>
 
-							
+
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							<div class="form-group">
+								<label id="label" class="control-label">Address:</label>
+								<textarea type="textarea" rows="2" cols="50" name="Adress" class="form-control" ng-model="user.address" placeholder="Enter Your address" autocomplete="off" required></textarea><br>
+								<span class="adr" ng-show="employeeForm.address.$error.required"></span>
+							</div><br/>
+							<div class="form-group">
+								<label for="dob" class="control-label">DoB</label><br />
+								<input type="date" id="dob" ng-model="user.dob" /> <br /><br />
+							</div>
+							<div class="form-group">
+								<label id="label" >Gender:</label>&nbsp;&nbsp;&nbsp;
+								Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" ng-model="user.gender" value="male" required>
+								&nbsp;&nbsp;&nbsp; Female <input type="radio" name="gender" ng-model="user.gender" value="female" required></br>
+								<span class="msg" ng-show="employeeForm.gender.$error.required">select any gender</span>
+							</div><br/>
+
+
+							<div class="form-group">
+								<label id="label" class="control-label">Country:</label>
+								<select class="form-control" ng-model="user.country" name="cont" required>
+									<option value="india">India</option>
+									<option value="USA">USA</option>
+									<option value="switzerland">switzerland</option>
+								</select>
+								<span class="msg" ng-show="employeeForm.cont.$error.required">Select a value</span>
+							</div><br/>
+							<div class="form-group">
+								<button ng-click = "saveEmployee(employeeForm)"  ng-disabled = "employeeForm.$invalid" class="btn btn-danger">Submit</button>
+
+								<input type="reset" ng-click="resetForm()" class ="btn btn-danger" value="Reset" />
+
+
+							</div>
 						</div>
-					</div>
 
-				</form>
+					</form>
+				</div>
 			</div>
-		</div>
 
 
 

@@ -22,7 +22,7 @@
 				<td>{{ emp.dob | date :  "dd/MM/y" }}</td>   
 
 				<td><a ui-sref="employees_edit({id: $index})">Edit</a></td> 
-				<td><a ui-sref="employees_delete({id: $index})">delete</a></td> 
+				<td><a ng-click="deleteEmployee($index)">Delete</a></td> 
 			</tr>  
 			</tr>  
 		

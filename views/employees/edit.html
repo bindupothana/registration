@@ -17,10 +17,12 @@
       <div ng-message = "required"></div><br/>
       <div ng-message = "pattern"> Invalid Name</div>
 					</div><br/>
+					
+
 					<div class="form-group" >
 						<label id="label" class="control-label">Last Name:</label>
-						<input type="text" class="form-control" name="userFirstName" ng-pattern="/[a-zA-Z]/" ng-model="user.firstname" placeholder="Enter First Name" ng-pattern="/[a-zA-Z]/" required />
-						<div ng-messages = "employeeForm.userFirstName.$error">
+						<input type="text" class="form-control" name="userLastName" ng-pattern="/[a-zA-Z]/" ng-model="user.lastname" placeholder="Enter Last Name" ng-pattern="/[a-zA-Z]/" required />
+						<div ng-messages = "employeeForm.userLastName.$error">
       <div ng-message = "required"></div><br/>
       <div ng-message = "pattern"> Invalid Name</div>
 						
@@ -33,12 +35,22 @@
 					</div><br/>
 
 					<div class="form-group">
-						<label id="label" class="control-label">Password:</label>
-						<input type="password" class="form-control" ng-model="user.password" name="password" placeholder="Enter Password" ng-minlength="5" ng-maxlength="12" required>
-						<span class="msg" ng-show="employeeForm.pass.$dirty && employeeForm.pass.$error.minlength">password must contain atleast 5 charecters</span>
-						<span class="msg" ng-show="employeeForm.pass.$dirty && employeeForm.pass.$error.maxlength">max-length of password reached</span>
-						<span class="msg" </span>
-						</div><br/>
+							<label id="label" class="control-label">Password:</label>
+							<input type="password" class="form-control" ng-model="user.password" name="userpassword" placeholder="Enter Password" autocomplete="off" ng-minlength="5" ng-maxlength="12" ng-pattern = "/^[0-9a-zA-Z]+$/" required>
+
+							<div ng-messages = "employeeForm.userpasswordsword.$error">
+								<div ng-message = "name">invalid password</div><br/>
+								<div ng-message = "pattern">invalid password</div>
+							</div>
+
+
+
+
+
+
+
+
+
 
 						<div class="form-group">
 							<label id="label" class="control-label">Address:</label>
