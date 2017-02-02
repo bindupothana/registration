@@ -1,29 +1,33 @@
 <div class="container">
 	<hr>
-	<button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Add New</button>
+	<button  type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal" ng-click="goto_new_employee_page()">Add New</button>
 
 	<h2>All users</h2>
 	<span class="clerfix"></span>
 	<hr>
 	<table class="table table-striped">
-		<thead>
+		
 			<tr>
 				<th>Firstname</th>
 				<th>Lastname</th>
 				<th>Email</th>
 				<th>Dob</th>
 				<th>options</th>
+				<th>options</th>
 			</tr>
 			<tr ng-repeat = "emp in employeeslist">  
 				<td>{{ emp.firstname }}</td>  
 				<td>{{ emp.lastname }}</td>  
-				<td>{{ emp.emailid }}</td>  
-				<td>{{ emp.dob}}</td>  
+				<td>{{ emp.email }}</td>  
+				<td>{{ emp.dob | date :  "dd/MM/y" }}</td>   
+
 				<td><a ui-sref="employees_edit({id: $index})">Edit</a></td> 
+				<td><a ui-sref="employees_delete({id: $index})">delete</a></td> 
 			</tr>  
-		</thead>
+			</tr>  
+		
 	</table>
 	<br>
-	<a ui-sref="employees_new"></a>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+	
 </div>

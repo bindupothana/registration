@@ -1,28 +1,35 @@
-var App=angular.module('employeeDemoApp',['ui.router','ngMessages']);
-App.config(function($stateprovider,$urlRouterprovider){
-			   
+ 
+var App = angular.module('employeeDemoApp',['ui.router', 'ngMessages']);
+
+App.config(function($stateProvider, $urlRouterProvider){
+				
+			$stateProvider
+		        .state('employees', {
+					url: "/employees",
+					templateUrl: "views/employees/list.html",
+					controller: "employeesCtrl"
+				})
+				.state('employees_edit', {
+					url: "/:id/edit",
+					templateUrl: "views/employees/edit.html",
+					controller: "employeesCtrl"
+				})
+				.state('employees_new', {
+					url: "/new",
+					templateUrl: "views/employees/new.html",
+					controller: "employeesCtrl"
+				});
+
+							
+				$urlRouterProvider.otherwise("/employees")	
 
 
-			   $stateprovider
-				    .state('employees',{
-					url:"/employees",
-					templateurl:"views/employees/list.html",
-					controller:"employeesctrl"
+            
 
-		})
+           });
 
-				    .state('employees_edit',{
-					url:"/:id/edit",
-					templateurl:"views/employees/edit.html",
-					controller:"employeesctrl"
+	
 
-		})
 
-				    .state('employees_new',{
-					url:"/new",
-					templateurl:"views/employees/new.html",
-					controller:"employeesctrl"
 
-		})
-				    $urlRouterprovider.otherwise("/employees")
-})
+
