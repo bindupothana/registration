@@ -4,7 +4,7 @@ app.controller('employeesCtrl', function($scope, $state, EmployeeService, $state
 
 
         $scope.saveEmployee = function(formname){
-			
+			console.log(formname.$error)
 			EmployeeService.saveEmployee($scope.user);
 			$state.go("employees");
 	    }
@@ -27,6 +27,7 @@ app.controller('employeesCtrl', function($scope, $state, EmployeeService, $state
 	    $scope.deleteEmployee = function(index){
 	    	EmployeeService.deleteEmployee(index);
 	    }
+
 
  });
 		

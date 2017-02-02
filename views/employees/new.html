@@ -34,6 +34,28 @@
 
 
 
+						<div class="form-group">
+							<label id="label" class="control-label">Password:</label>
+							<input type="password" class="form-control" ng-model="user.password" name="userpassword" placeholder="Enter Password" autocomplete="off" ng-minlength="8" ng-maxlength="12"  required>
+
+							<div ng-messages = "employeeForm.userpassword.$error">
+								<div ng-message = "name">invalid password</div><br/>
+								<div ng-message = "pattern">invalid password</div>
+							</div>
+
+							<div class="form-group">
+							<label id="label" class="control-label">Confirm Password:</label>
+							<input type="password" class="form-control" ng-model="user.confirmpassword" name="confirmpassword" placeholder="Enter Password" autocomplete="off" ng-minlength="8" ng-maxlength="12"  compare-to="user.password" required>
+
+							<div ng-messages = "employeeForm.confirmpassword.$error">
+								<div ng-message = "name">invalid password</div><br/>
+								<div ng-message = "compareTo">invalid Confirm password</div>
+							</div>
+
+
+
+
+
 
 
 
@@ -43,14 +65,7 @@
 							<span class="msg" ng-show="employeeForm.email.$dirty && employeeForm.email.$invalid">Email Address is not valid</span>
 						</div><br/>
 
-						<div class="form-group">
-							<label id="label" class="control-label">Password:</label>
-							<input type="password" class="form-control" ng-model="user.password" name="userpassword" placeholder="Enter Password" autocomplete="off" ng-minlength="8" ng-maxlength="12" ng-pattern = "/^[0-9a-zA-Z]+$/" required>
-
-							<div ng-messages = "employeeForm.userpasswordsword.$error">
-								<div ng-message = "name">invalid password</div><br/>
-								<div ng-message = "pattern">invalid password</div>
-							</div>
+						
 
 
 
@@ -97,7 +112,7 @@
 								<span class="msg" ng-show="employeeForm.cont.$error.required">Select a value</span>
 							</div><br/>
 							<div class="form-group">
-								<button ng-click = "saveEmployee(employeeForm)"  ng-disabled = "employeeForm.$invalid" class="btn btn-danger">Submit</button>
+								<button ng-click = "saveEmployee(employeeForm)"   class="btn btn-danger">Submit</button>
 
 								<input type="reset" ng-click="resetForm()" class ="btn btn-danger" value="Reset" />
 

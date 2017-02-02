@@ -20,6 +20,12 @@ App.config(function($stateProvider, $urlRouterProvider){
 					controller: "employeesCtrl"
 				});
 
+
+
+
+
+				
+
 							
 				$urlRouterProvider.otherwise("/employees")	
 
