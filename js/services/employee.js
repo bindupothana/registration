@@ -12,7 +12,7 @@ app.factory('EmployeeService',function() {
     }
     factory.getEmployee = function(index){
     	console.log(employeeList, employeeList[index])
-    	return employeeList[index];
+    	return angular.copy(employeeList[index]);
     }
     factory.updateEmployee = function(index, employee){
     	
