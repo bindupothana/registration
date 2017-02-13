@@ -12,6 +12,7 @@
 				<th>Lastname</th>
 				<th>Email</th>
 				<th>Dob</th>
+				<th>Gender</th>
 				<th>options</th>
 				<th>options</th>
 			</tr>
@@ -20,6 +21,7 @@
 				<td>{{ emp.lastname }}</td>  
 				<td>{{ emp.email }}</td>  
 				<td>{{ emp.dob | date :  "dd/MM/y" }}</td>   
+				<td>{{emp.gender}}</td>
 
 				<td><a ui-sref="employees_edit({id: $index})">Edit</a></td> 
 				<td><a ng-click="deleteEmployee($index)">Delete</a></td> 
