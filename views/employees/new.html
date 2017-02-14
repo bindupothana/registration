@@ -16,14 +16,10 @@
 						<div ng-message = "required"></div><br/>
 						<div ng-message = "pattern"> Invalid Name</div>
 					</div><br/>
-					
-
-
-
-
+				
 					<div class="form-group" >
 					<label id="label" class="control-label">Last Name:</label>
-						<input type="text" class="form-control" name="userLastName" ng-pattern="/[a-zA-Z]/" ng-model="user.Lastname" placeholder="Enter last Name" ng-pattern="/[a-zA-Z]/" required />
+						<input type="text" class="form-control" name="userLastName" ng-pattern="/[a-zA-Z]/" ng-model="user.lastname" placeholder="Enter last Name" ng-pattern="/[a-zA-Z]/" required />
 						<div ng-messages = "employeeForm.userLastName.$error">
 							<div ng-message = "required"></div><br/>
 							<div ng-message = "pattern"> Invalid Name</div>
@@ -65,25 +61,7 @@
 							<span class="msg" ng-show="employeeForm.email.$dirty && employeeForm.email.$invalid">Email Address is not valid</span>
 						</div><br/>
 
-						
-
-
-
-						
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				
 
 							<div class="form-group">
 								<label id="label" class="control-label">Address:</label>

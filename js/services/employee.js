@@ -2,11 +2,14 @@ var app = angular.module('employeeDemoApp');
 app.factory('EmployeeService',function() {
 
   var factory = {};
-  var employeeList=[];
+  
 
 
   factory.saveEmployee = function(employee){
-    employeeList =  JSON.parse(localStorage.getItem('employeeList')); 
+    var employeeList =  JSON.parse(localStorage.getItem('employeeList')); 
+   
+console.log(angular.copy(employeeList));
+
     if(employeeList == null){
       employeeList = [];
     }
@@ -15,35 +18,49 @@ app.factory('EmployeeService',function() {
     return localStorage.setItem('employeeList', JSON.stringify(employeeList));
   }
 
-
-
   factory.getEmployees = function(){
 
    var employeeList =  JSON.parse(localStorage.getItem('employeeList'));
+  
+console.log(angular.copy(employeeList));
    console.log(JSON.parse(localStorage.getItem('employeeList')));
    return employeeList;
  }
+   factory.getEmployee = function(index){
+    var employeeList =  JSON.parse(localStorage.getItem('employeeList'));
+  
+    console.log(JSON.parse(localStorage.getItem('employeeList')));
+    return angular.copy(employeeList[index]);
+  }
 
- 
-
-
-
- factory.getEmployee = function(index){
-  var employeeList =  JSON.parse(localStorage.getItem('employeeList'));
-  console.log(JSON.parse(localStorage.getItem('employeeList')));
-
-
-  return angular.copy(employeeList[index]);
-}
 
 factory.updateEmployee = function(index, employee){
 
- return employeeList[index] = employee;
+    var employeeList =  JSON.parse(localStorage.getItem('employeeList')); 
+
+    
+      //employeeList.updateEmployees(employee);
+
+    
+   return employeeList[index] = employee;
 }
+
+
+
 factory.deleteEmployee = function(index){
 
-  return employeeList.splice(index,1);
+    var employeeList = JSON.parse (localStorage.getItem('employeeList')); 
+  console.log("index...", index, employeeList)
+     employeeList.splice(index, 1);
+    console.log("index...", index, employeeList)
+    localStorage.setItem('employeeList', JSON.stringify(employeeList));
+    return employeeList;
 }
+
+
+
+
+
 
 
 return factory;

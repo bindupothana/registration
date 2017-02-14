@@ -11,6 +11,7 @@ app.controller('employeesCtrl', function($scope, $state, EmployeeService, $state
         $scope.employeeslist = EmployeeService.getEmployees();
         if($stateParams && $stateParams.id){
         	$scope.user = EmployeeService.getEmployee($stateParams.id);
+        	$scope.user.dob = new Date($scope.user.dob);
         	console.log("gdfg", $scope.user)
         }
          
@@ -29,7 +30,9 @@ app.controller('employeesCtrl', function($scope, $state, EmployeeService, $state
 
 
 	    $scope.deleteEmployee = function(index){
+	    	console.log("fgdfhdh")
 	    	EmployeeService.deleteEmployee(index);
+	    	 $scope.employeeslist = EmployeeService.getEmployees();
 
 	    }
 
